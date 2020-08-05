@@ -14,7 +14,7 @@ let dburl;
 if (process.env.NODE_ENV === 'dev') {
     dburl = 'mongodb://localhost:27017/cafe'
 } else {
-    dburl = 'mongodb+srv://api:YV6X2v20l3Tj498H@cafe.lp2ue.mongodb.net/cafe'
+    dburl = process.env.DB_URL;
 }
 
 //mongodb+srv://<username>:<password>@cafe.lp2ue.mongodb.net/<dbname>?retryWrites=true&w=majority
