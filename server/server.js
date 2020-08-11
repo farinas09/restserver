@@ -1,15 +1,18 @@
 require('./config/config');
 
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
+const app = express();
+
 
 //parse x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use(require('./routes/usuario'));
+//routes config
+app.use(require('./routes/index'));
 
 let options = {
     useFindAndModify: false,
