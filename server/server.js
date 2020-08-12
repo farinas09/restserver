@@ -3,6 +3,7 @@ require('./config/config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 
@@ -26,6 +27,7 @@ mongoose.connect(process.env.URLDB, options, (err, res) => {
     console.log('Base de datos conectada');
 });
 
+app.use(express.static(path.resolve(__dirname, '../public')))
 
 app.listen(process.env.PORT, () => {
     console.log('Listening port', process.env.PORT);
