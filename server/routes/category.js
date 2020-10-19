@@ -59,9 +59,9 @@ app.post("/category", verifyToken, (req, res) => {
 
   let category = new Category({
     description: body.description,
-    user: req.usuario._id,
+    user: req.user._id,
   });
-  console.log(req.usuario._id);
+  console.log(req.user._id);
 
   category.save((err, categoryDb) => {
     if (err) {
