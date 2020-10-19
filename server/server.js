@@ -28,6 +28,6 @@ mongoose.connect(process.env.URLDB, options, (err, res) => {
 
 app.use(express.static(path.resolve(__dirname, "../public")));
 
-app.listen(5000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Listening port", process.env.PORT);
 });
