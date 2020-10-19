@@ -10,15 +10,15 @@ process.env.SEED = process.env.SEED || "api-dev";
 process.env.EXPIRES_TIME = "48h";
 //DB
 
-///let dburl;
+let dburl;
 
-//if (process.env.NODE_ENV === "dev") {
-//dburl = "mongodb://localhost:27017/cafe";
-//} else {
-//  dburl = process.env.DB_URL;
-//}
+if (process.env.NODE_ENV === "dev") {
+  dburl = "mongodb://localhost:27017/cafe";
+} else {
+  dburl = process.env.DB_URL;
+}
 
-//process.env.URLDB = dburl;
+process.env.URLDB = dburl;
 
 //Google Client ID
 process.env.CLIENT_ID =
