@@ -33,7 +33,24 @@ let verifyRole = (req, res, next) => {
   }
 };
 
+let verifyAuthImg = (req, res, next) => {
+  let auth = req.query.auth;
+
+  jwt.verify(auth, process.env.SEED, (err, decoded) => {
+    if (err) {
+      return res.status(401).json({
+        ok: false,
+        err,
+      });
+    }
+
+    req.user = decoded.user;
+    next();
+  });
+};
+
 module.exports = {
   verifyToken,
   verifyRole,
+  verifyAuthImg,
 };
